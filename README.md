@@ -9,11 +9,14 @@ A C++ program that finds an optimized round-robin schedule for a free-for-all ga
 - Each game has **4 players**
 - Goal: Minimize the number of times any two players play together more than once
 
-## Default Configuration
+## Example Configuration
 
+Example with 32 players and 10 rounds:
 - N = 32 players
 - K = 10 rounds
 - 8 games per round
+
+Run with: `./round_robin 32 10`
 
 ## Compilation
 
@@ -40,7 +43,16 @@ cl /EHsc /O2 round_robin.cpp
 ## Usage
 
 ```bash
-./round_robin
+./round_robin <N> <K>
+```
+
+Where:
+- `N`: Number of players (must be a multiple of 4)
+- `K`: Number of rounds
+
+Example:
+```bash
+./round_robin 32 10
 ```
 
 The program will:
@@ -86,9 +98,7 @@ Results are also saved to files in the `results/` directory, containing:
 
 ## Customization
 
-You can modify the parameters in `main()`:
-- `N`: Number of players (must be multiple of 4)
-- `K`: Number of rounds
+You can specify `N` and `K` as command line arguments when running the program.
 
 You can also adjust optimization parameters in the `optimize()` call in `main()`:
 - `initial_temp`: Starting temperature (currently: 1000.0)

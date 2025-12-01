@@ -530,9 +530,45 @@ int findBestScore(const std::string& dir) {
     return best_score;
 }
 
-int main() {
-    const int N = 32;  // Number of players
-    const int K = 10;  // Number of rounds
+void printUsage(const char* program_name) {
+    std::cerr << "Usage: " << program_name << " <N> <K>\n";
+    std::cerr << "  N: Number of players (must be a multiple of 4)\n";
+    std::cerr << "  K: Number of rounds\n";
+    std::cerr << "\nExample: " << program_name << " 32 10\n";
+}
+
+int main(int argc, char* argv[]) {
+    // Parse command line arguments
+    if (argc != 3) {
+        printUsage(argv[0]);
+        return 1;
+    }
+    
+    int N, K;
+    try {
+        N = std::stoi(argv[1]);
+        K = std::stoi(argv[2]);
+    } catch (const std::exception& e) {
+        std::cerr << "Error: Invalid arguments. N and K must be integers.\n\n";
+        printUsage(argv[0]);
+        return 1;
+    }
+    
+    // Validate N (must be multiple of 4)
+    if (N <= 0 || N % 4 != 0) {
+        std::cerr << "Error: N must be a positive multiple of 4.\n";
+        std::cerr << "  Provided: N = " << N << "\n\n";
+        printUsage(argv[0]);
+        return 1;
+    }
+    
+    // Validate K (must be positive)
+    if (K <= 0) {
+        std::cerr << "Error: K must be a positive integer.\n";
+        std::cerr << "  Provided: K = " << K << "\n\n";
+        printUsage(argv[0]);
+        return 1;
+    }
     
     std::cout << "Round-Robin Scheduler\n";
     std::cout << "====================\n";
