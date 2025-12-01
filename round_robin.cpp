@@ -456,10 +456,10 @@ void createDirectory(const std::string& dir) {
 #endif
 }
 
-// Find the best (lowest) score in the results directory
+// Find the best (lowest) score in the results directory for a specific N and K
 // Returns the best score, or -1 if no results found
 // Filename format: N_K_score_time.txt
-int findBestScore(const std::string& dir) {
+int findBestScore(const std::string& dir, int N, int K) {
     int best_score = -1;
     
 #ifdef _WIN32
@@ -470,19 +470,24 @@ int findBestScore(const std::string& dir) {
     if (hFind != INVALID_HANDLE_VALUE) {
         do {
             std::string filename = findData.cFileName;
-            // Parse score from filename: N_K_score_time.txt
-            // Find the third underscore (after N, K, score)
+            // Parse filename: N_K_score_time.txt
             size_t pos1 = filename.find('_');
             if (pos1 != std::string::npos) {
                 size_t pos2 = filename.find('_', pos1 + 1);
                 if (pos2 != std::string::npos) {
                     size_t pos3 = filename.find('_', pos2 + 1);
                     if (pos3 != std::string::npos) {
-                        std::string score_str = filename.substr(pos2 + 1, pos3 - pos2 - 1);
                         try {
-                            int score = std::stoi(score_str);
-                            if (best_score == -1 || score < best_score) {
-                                best_score = score;
+                            // Extract N, K, and score
+                            int file_N = std::stoi(filename.substr(0, pos1));
+                            int file_K = std::stoi(filename.substr(pos1 + 1, pos2 - pos1 - 1));
+                            int score = std::stoi(filename.substr(pos2 + 1, pos3 - pos2 - 1));
+                            
+                            // Only consider files matching the current N and K
+                            if (file_N == N && file_K == K) {
+                                if (best_score == -1 || score < best_score) {
+                                    best_score = score;
+                                }
                             }
                         } catch (...) {
                             // Ignore files that don't match the pattern
@@ -501,19 +506,24 @@ int findBestScore(const std::string& dir) {
             std::string filename = entry->d_name;
             // Check if it's a .txt file
             if (filename.length() > 4 && filename.substr(filename.length() - 4) == ".txt") {
-                // Parse score from filename: N_K_score_time.txt
-                // Find the third underscore (after N, K, score)
+                // Parse filename: N_K_score_time.txt
                 size_t pos1 = filename.find('_');
                 if (pos1 != std::string::npos) {
                     size_t pos2 = filename.find('_', pos1 + 1);
                     if (pos2 != std::string::npos) {
                         size_t pos3 = filename.find('_', pos2 + 1);
                         if (pos3 != std::string::npos) {
-                            std::string score_str = filename.substr(pos2 + 1, pos3 - pos2 - 1);
                             try {
-                                int score = std::stoi(score_str);
-                                if (best_score == -1 || score < best_score) {
-                                    best_score = score;
+                                // Extract N, K, and score
+                                int file_N = std::stoi(filename.substr(0, pos1));
+                                int file_K = std::stoi(filename.substr(pos1 + 1, pos2 - pos1 - 1));
+                                int score = std::stoi(filename.substr(pos2 + 1, pos3 - pos2 - 1));
+                                
+                                // Only consider files matching the current N and K
+                                if (file_N == N && file_K == K) {
+                                    if (best_score == -1 || score < best_score) {
+                                        best_score = score;
+                                    }
                                 }
                             } catch (...) {
                                 // Ignore files that don't match the pattern
@@ -594,9 +604,9 @@ int main(int argc, char* argv[]) {
         std::cout << "Initial cost: " << initial_cost << "\n";
         
         // Check best score before optimization
-        int best_score_before = findBestScore("results");
+        int best_score_before = findBestScore("results", N, K);
         if (best_score_before == -1) {
-            std::cout << "No previous results found.\n";
+            std::cout << "No previous results found for N=" << N << ", K=" << K << ".\n";
         } else {
             std::cout << "Best score in directory: " << best_score_before << "\n";
         }
@@ -623,9 +633,9 @@ int main(int argc, char* argv[]) {
                   << std::fixed << std::setprecision(2) << (duration.count() / 1000.0) << " seconds)\n";
         
         // Check if this result is better than the best in the directory
-        int best_score = findBestScore("results");
+        int best_score = findBestScore("results", N, K);
         if (best_score == -1) {
-            std::cout << "No previous results found.\n";
+            std::cout << "No previous results found for N=" << N << ", K=" << K << ".\n";
         } else {
             std::cout << "Best score in directory: " << best_score << "\n";
         }
