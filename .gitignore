@@ -1,0 +1,25 @@
+# Build artifacts
+round_robin
+round_robin.exe
+*.exe
+*.o
+*.obj
+*.a
+*.so
+*.dylib
+
+# Results directory
+results/
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Compiler output
+*.out
+*.dSYM/
+
