@@ -21,6 +21,9 @@ def main():
             player_index_map.clear()
             table_count = player_count // 4
             print(f"{player_count} players, {round_count} rounds:")
+            player_opponents_map: dict[int, set[int]] = {}
+            for player_index in range(player_count):
+                player_opponents_map[player_index] = set()
             for round_index in range(round_count):
                 line = lines[line_index + round_index]
                 arr = line.split()
@@ -29,13 +32,22 @@ def main():
                 print(f"Round {round_index + 1}:")
                 for table_index in range(1, table_count + 1):
                     print(f"  Table {table_index}:", end=" ")
-                    for k in range(4):
-                        c = arr[table_index][k]
+                    for i in range(4):
+                        c = arr[table_index][i]
                         if c not in player_index_map:
-                            player_index = len(player_index_map) + 1
+                            player_index = len(player_index_map)
                             player_index_map[c] = player_index
-                        print(player_index_map[c], end=" ")
+                        print(player_index_map[c] + 1, end=" ")
+                    for i in range(4):
+                        for j in range(4):
+                            if i == j:
+                                continue
+                            player_index = player_index_map[arr[table_index][i]]
+                            opponent_index = player_index_map[arr[table_index][j]]
+                            player_opponents_map[player_index].add(opponent_index)
                     print()
+            for player_index in range(player_count):
+                assert len(player_opponents_map[player_index]) == 3 * round_count
             line_index += round_count
             print()
 
