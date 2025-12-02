@@ -1,0 +1,58 @@
+16 players, 5 rounds:
+R1: ABCD EFGH IJKL MNOP
+R2: AEIM BFJN CGKO DHLP
+R3: AFKP BELO CHIN DGJM
+R4: AGLN BHKM CEJP DFIO
+R5: AHJO BGIP CFLM DEKN
+
+20 players, 5 rounds:
+R1: ABCD EFGH IJKL MNOP QRST
+R2: AEIM BFJQ CGNR DKOS HLPT
+R3: AFOT BELR CIPS DGJM HKNQ
+R4: AJPR BHMS CEKT DFIN GLOQ
+R5: ALNS BGIT CHJO DEPQ FKMR
+
+24 players, 7 rounds:
+R1: ABKU IJSE QRCM DGFX HLNO PTVW
+R2: ACLV IKTF QSDN EHGR BMOP JUWX
+R3: ADMW ILUG QTEO FBHS CJNP KRVX
+R4: AENX IMVH QUFP GCBT DJKO LRSW
+R5: AFOR INWB QVGJ HDCU EKLP MSTX
+R6: AGPS IOXC QWHK BEDV FJLM NRTU
+R7: AHJT IPRD QXBL CFEW GKMN OSUV
+
+28 players, 9 rounds:
+R1: ABCD EFGH IJKL MNab cdef ghij klmn
+R2: AEgk BFMc Ndhl GIem HJai CKbn DLfj
+R3: AFjn BEae bfim HKcl GLMh CINk DJdg
+R4: AIci BJNn EKMj FLdm begl CGaf DHhk
+R5: AGbd BHgm ELNi achn FKfk CJej DIMl
+R6: AKeh BLbk FIag EJfl Ncjm CHMd DGin
+R7: AHNf BGjl FJbh Meik EIdn CLcg DKam
+R8: ALal BKdi GJck Mfgn HIbj CEhm DFNe
+R9: AJMm BIfh CFil DEbc GKNg HLen adjk
+
+32 players, 10 rounds:
+R1:  ABCD EFGH IJKL MNPO abcd efgh ijkl mnop
+R2:  AEIm BgcH DFKp kPdf Maei ChbG jNoL lJnO
+R3:  Alof Bhkm DNGi FaLO MbHK CPeJ Ejcp gIdn
+R4:  AciL BjdK DkbJ FgoP fGOp CIla EhMn NeHm
+R5:  AgNK BElP DIoH hdiO beLp Cjfm FMcJ kaGn
+R6:  AhJp BFin DcmO INbf leGK CMod EgkL jPaH
+R7:  AFde BoGJ DEaf hlNc PiKm CHLn gjbO IkMp
+R8:  APbn BNap DglM koce fHiJ CEKO FhIj dGLm
+R9:  AjMG BIeO DhPL gaJm cfKn CFkN Eobi ldHp
+R10: AkHO BMfL Djen Flbm IPcG Cgip ENdJ hoaK
+
+36 players, 11 rounds:
+R1:  BCNP HRlm Dkor Fhnp AJaj KLEG QIcd Mbfi Oqeg
+R2:  CDOQ IAmn Elpa Gioq BKbk LMFH RJde Ncgj Prfh
+R3:  DEPR JBno Fmqb Hjpr CLcl MNGI AKef Odhk Qagi
+R4:  EFQA KCop Gnrc Ikqa DMdm NOHJ BLfg Peil Rbhj
+R5:  FGRB LDpq Hoad Jlrb ENen OPIK CMgh Qfjm Acik
+R6:  GHAC MEqr Ipbe Kmac FOfo PQJL DNhi Rgkn Bdjl
+R7:  HIBD NFra Jqcf Lnbd GPgp QRKM EOij Ahlo Cekm
+R8:  IJCE OGab Krdg Moce HQhq RALN FPjk Bimp Dfln
+R9:  JKDF PHbc Laeh Npdf IRir ABMO GQkl Cjnq Egmo
+R10: BEch DGej FIgl HKin JMkp LOmr NQob PAqd RCaf
+R11: CFdi EHfk GJhm ILjo KNlq MPna ORpc QBre ADbg
