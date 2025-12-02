@@ -8,9 +8,6 @@ round_robin.exe
 *.so
 *.dylib
 
-# Results directory
-results/
-
 # IDE files
 .vscode/
 .idea/
